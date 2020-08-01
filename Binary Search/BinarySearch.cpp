@@ -1,3 +1,9 @@
+/**
+Algorithm    : Binary Search
+Author       : Zubayer Rahman
+Email        : zubayer.csesust@gmail.com
+*/
+
 #include<bits/stdc++.h>
 
 using namespace std;
