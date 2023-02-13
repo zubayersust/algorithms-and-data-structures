@@ -11,19 +11,19 @@ using namespace std;
 int LowerBound(int *array_pointer, int length, int n)
 {
     printf("Sorted Array: ");
-    for(int i=0; i<length; i++)
+    for(int i = 0; i < length; i++)
         printf("%d ", *(array_pointer + i));
 
     printf("\n");
 
     int start = 0;
-    int last = length-1;
+    int last = length - 1;
     int index = -1;
 
-    while(start<=last)
+    while(start <= last)
     {
         int mid = (start + last) / 2;
-        if(n == *(array_pointer + mid) || n < *(array_pointer + mid))
+        if(n == *(array_pointer + mid) || n < * (array_pointer + mid))
         {
             index = mid;
             last = mid - 1;
@@ -39,19 +39,19 @@ int LowerBound(int *array_pointer, int length, int n)
 int UpperBound(int *array_pointer, int length, int n)
 {
     printf("Sorted Array: ");
-    for(int i=0; i<length; i++)
+    for(int i = 0; i < length; i++)
         printf("%d ", *(array_pointer + i));
 
     printf("\n");
 
     int start = 0;
-    int last = length-1;
-    int index = -1;
+    int last = length - 1;
+    int index = length;
 
-    while(start<=last)
+    while(start <= last)
     {
-        int mid = (start + last) / 2;
-        if(n < *(array_pointer + mid))
+        int mid = start + (last - start) / 2;
+        if(n < * (array_pointer + mid))
         {
             index = mid;
             last = mid - 1;
@@ -59,29 +59,26 @@ int UpperBound(int *array_pointer, int length, int n)
         else start = mid + 1;
     }
 
-    return start;
+    return index;
 }
 
 int BinarySearch(int *array_pointer, int length, int n)
 {
     printf("Sorted Array: ");
-    for(int i=0; i<length; i++)
+    for(int i = 0; i < length; i++)
         printf("%d ", *(array_pointer + i));
 
     printf("\n");
 
     int start = 0;
-    int last = length-1;
+    int last = length - 1;
     int index = -1;
 
-    while(start<=last)
+    while(start <= last)
     {
-        int mid = (start + last) / 2;
+        int mid = start + (last - start) / 2;
         if(n == *(array_pointer + mid))
-        {
-            index = mid;
-            last = mid - 1;
-        }
+            return mid;
         else if(n > *(array_pointer + mid))
             start = mid + 1;
         else last = mid - 1;
@@ -105,7 +102,7 @@ int main()
     //sort(numbers, numbers+length, greater<int>());
 
     //Sorted in Ascending Order
-    sort(numbers, numbers+length);
+    sort(numbers, numbers + length);
 
     result = BinarySearch(numbers, length, a);
     if(result == -1)
@@ -124,7 +121,7 @@ int main()
 
     int d = 8;
     int f = 20;
-    int k = 200;
+    int k = 5;
 
     printf("**********Find Lower Bound**********\n\n");
 
